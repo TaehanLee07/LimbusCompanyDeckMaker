@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>림버스 컴퍼니 덱 메이커</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>림버스 컴퍼니 덱 메이커</h1>
+        </div>
+        <div class="characters">
+            <!-- 12명의 캐릭터들 -->
+            <div class="character" data-index="0">
+                <img src="characterImage/이상.png" alt="이상">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="1">
+                <img src="characterImage/파우스트.png" alt="파우스트">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="2">
+                <img src="characterImage/돈키호테.png" alt="돈키호테">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="3">
+                <img src="characterImage/료슈.png" alt="료슈">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="4">
+                <img src="characterImage/뫼르소.png" alt="뫼르소">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="5">
+                <img src="characterImage/홍루.png" alt="홍루">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="6">
+                <img src="characterImage/히스클리프.png" alt="히스클리프">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="7">
+                <img src="characterImage/이스마엘.png" alt="이스마엘">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="8">
+                <img src="characterImage/로쟈.png" alt="로쟈">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="9">
+                <img src="characterImage/싱클레어.png" alt="싱클레어">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="10">
+                <img src="characterImage/오티스.png" alt="오티스">
+                <div class="overlay">편성 편집</div>
+            </div>
+            <div class="character" data-index="11">
+                <img src="characterImage/그레고르.png" alt="그레고르">
+                <div class="overlay">편성 편집</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2>편집</h2>
+            <div class="tabs">
+                <button class="tablink" onclick="openTab(event, 'persona')">인격</button>
+                <button class="tablink" onclick="openTab(event, 'ego')">EGO</button>
+            </div>
+            <div id="persona" class="tabcontent">
+                <h3>인격 선택</h3>
+                <form id="personaForm">
+                    <label for="characterSelect">캐릭터 선택:</label>
+                    <select id="characterSelect">
+                        <option value="0">이상</option>
+                        <option value="1">파우스트</option>
+                        <option value="2">돈키호테</option>
+                        <option value="3">료슈</option>
+                        <option value="4">뫼르소</option>
+                        <option value="5">홍루</option>
+                        <option value="6">히스클리프</option>
+                        <option value="7">이스마엘</option>
+                        <option value="8">로쟈</option>
+                        <option value="9">싱클레어</option>
+                        <option value="10">오티스</option>
+                        <option value="11">그레고르</option>
+                    </select>
+                    <label for="personaName">인격 이름:</label>
+                    <input type="text" id="personaName" required>
+                    <label for="health">체력:</label>
+                    <input type="number" id="health" required>
+                    <label for="speed">속도:</label>
+                    <input type="text" id="speed" required>
+                    <label for="skillTypes">스킬 유형:</label>
+                    <select id="skillTypes" multiple>
+                        <option value="slash">참격</option>
+                        <option value="pierce">관통</option>
+                        <option value="strike">타격</option>
+                    </select>
+                    <label for="defense">내성 정보:</label>
+                    <div id="defense">
+                        <div>
+                            <label for="slashDefense">참격:</label>
+                            <select id="slashDefense">
+                                <option value="weak">취약</option>
+                                <option value="normal">보통</option>
+                                <option value="resist">내성</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="pierceDefense">관통:</label>
+                            <select id="pierceDefense">
+                                <option value="weak">취약</option>
+                                <option value="normal">보통</option>
+                                <option value="resist">내성</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="strikeDefense">타격:</label>
+                            <select id="strikeDefense">
+                                <option value="weak">취약</option>
+                                <option value="normal">보통</option>
+                                <option value="resist">내성</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label for="resources">스킬 자원:</label>
+                    <select id="resources" multiple>
+                        <option value="anger">분노</option>
+                        <option value="lust">색욕</option>
+                        <option value="sloth">나태</option>
+                        <option value="gluttony">탐식</option>
+                        <option value="depression">우울</option>
+                        <option value="pride">오만</option>
+                        <option value="envy">질투</option>
+                    </select>
+                    <label for="resourceCounts">각 자원 갯수:</label>
+                    <div id="resourceCounts">
+                        <label for="angerCount">분노:</label>
+                        <input type="number" id="angerCount" min="0" required>
+                        <label for="lustCount">색욕:</label>
+                        <input type="number" id="lustCount" min="0" required>
+                        <label for="slothCount">나태:</label>
+                        <input type="number" id="slothCount" min="0" required>
+                        <label for="gluttonyCount">탐식:</label>
+                        <input type="number" id="gluttonyCount" min="0" required>
+                        <label for="depressionCount">우울:</label>
+                        <input type="number" id="depressionCount" min="0" required>
+                        <label for="prideCount">오만:</label>
+                        <input type="number" id="prideCount" min="0" required>
+                        <label for="envyCount">질투:</label>
+                        <input type="number" id="envyCount" min="0" required>
+                    </div>
+                    <label for="keywords">키워드:</label>
+                    <select id="keywords" multiple>
+                        <option value="burn">화상</option>
+                        <option value="bleed">출혈</option>
+                        <option value="vibration">진동</option>
+                        <option value="burst">파열</option>
+                        <option value="submerge">침잠</option>
+                        <option value="breath">호흡</option>
+                        <option value="charge">충전</option>
+                    </select>
+                    <button type="submit">추가</button>
+                </form>
+            </div>
+            <div id="ego" class="tabcontent">
+                <h3>EGO 선택</h3>
+                <form id="egoForm">
+                    <label for="characterSelectEgo">캐릭터 선택:</label>
+                    <select id="characterSelectEgo">
+                        <option value="0">이상</option>
+                        <option value="1">파우스트</option>
+                        <option value="2">돈키호테</option>
+                        <option value="3">료슈</option>
+                        <option value="4">뫼르소</option>
+                        <option value="5">홍루</option>
+                        <option value="6">히스클리프</option>
+                        <option value="7">이스마엘</option>
+                        <option value="8">로쟈</option>
+                        <option value="9">싱클레어</option>
+                        <option value="10">오티스</option>
+                        <option value="11">그레고르</option>
+                    </select>
+                    <label for="egoName">EGO 이름:</label>
+                    <input type="text" id="egoName" required>
+                    <label for="baseCoin">기본 코인 값:</label>
+                    <input type="number" id="baseCoin" required>
+                    <label for="coinAdd">앞면 코인 추가 값:</label>
+                    <input type="number" id="coinAdd" required>
+                    <label for="coinCount">코인 갯수:</label>
+                    <input type="number" id="coinCount" required>
+                    <label for="weight">공격 가중치:</label>
+                    <input type="number" id="weight" required>
+                    <label for="resourceCountEgo">필요 자원 갯수:</label>
+                    <div id="resourceCountEgo">
+                        <label for="egoAngerCount">분노:</label>
+                        <input type="number" id="egoAngerCount" min="0" required>
+                        <label for="egoLustCount">색욕:</label>
+                        <input type="number" id="egoLustCount" min="0" required>
+                        <label for="egoSlothCount">나태:</label>
+                        <input type="number" id="egoSlothCount" min="0" required>
+                        <label for="egoGluttonyCount">탐식:</label>
+                        <input type="number" id="egoGluttonyCount" min="0" required>
+                        <label for="egoDepressionCount">우울:</label>
+                        <input type="number" id="egoDepressionCount" min="0" required>
+                        <label for="egoPrideCount">오만:</label>
+                        <input type="number" id="egoPrideCount" min="0" required>
+                        <label for="egoEnvyCount">질투:</label>
+                        <input type="number" id="egoEnvyCount" min="0" required>
+                    </div>
+                    <button type="submit">추가</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>자원 수급량 / 자원 사용량</h3>
+        <div id="resourceSummary"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
